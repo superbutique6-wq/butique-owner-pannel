@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Plus, Search, Trash2, X, CheckCircle, ImageOff, Edit2, Save, UploadCloud } from 'lucide-react';
 import Script from 'next/script';
 import { storageService } from '@/services/storageService';
+import { communicationService } from '@/services/communicationService';
 
 type Product = { id: number; name: string; category: string; price: number; stock: number; status: string };
 
@@ -83,11 +84,21 @@ export default function ClientProductsPage() {
   const openUpload = () => {
     // @ts-ignore
     const widget = window.cloudinary?.createUploadWidget(
-      { cloudName: 'demo', uploadPreset: 'unsigned' }, // Placeholders
+      { 
+        cloudName: 'dw80rtrhc', 
+        uploadPreset: 'ml_default', // standard default unsigned preset
+        cropping: true,
+        sources: ['local', 'url']
+      }, 
       (err, res) => { if (res.event === 'success') setImageUrl(res.info.secure_url); }
     );
     widget.open();
   };
+
+  useEffect(() => {
+    // Simulated OneSignal init
+    // communicationService.initOneSignal();
+  }, []);
 
   return (
     <div className="max-w-6xl mx-auto">

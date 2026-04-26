@@ -1,7 +1,7 @@
 /**
  * Cloudinary Storage Service Utility
  * 
- * Provides handles for the Cloudinary Upload Widget.
+ * Cloud Name: dw80rtrhc
  */
 
 export const storageService = {
@@ -11,24 +11,26 @@ export const storageService = {
     // @ts-ignore
     return window.cloudinary?.createUploadWidget(
       {
-        cloudName: 'YOUR_CLOUD_NAME', // Will be injected via env/props
-        uploadPreset: 'boutique_uploads',
+        cloudName: 'dw80rtrhc',
+        uploadPreset: 'boutique_uploads', // Note: User needs to create this preset as 'unsigned' in Cloudinary
         cropping: true,
+        multiple: false,
+        theme: 'minimal',
         styles: {
           palette: {
             window: "#FFFFFF",
-            windowBorder: "#90A0B3",
-            tabIcon: "#E5C1CD",
-            menuIcons: "#5A616A",
-            textDark: "#000000",
+            windowBorder: "#E5C1CD",
+            tabIcon: "#333333",
+            menuIcons: "#333333",
+            textDark: "#333333",
             textLight: "#FFFFFF",
             link: "#E5C1CD",
-            action: "#1C1C1C",
-            inactiveTabIcon: "#0E2F5A",
+            action: "#333333",
+            inactiveTabIcon: "#999999",
             error: "#F44235",
-            inProgress: "#0078FF",
+            inProgress: "#E5C1CD",
             complete: "#20B832",
-            sourceBg: "#E4EBF1"
+            sourceBg: "#F9F7F1"
           }
         }
       },
